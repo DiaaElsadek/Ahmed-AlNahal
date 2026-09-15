@@ -5,9 +5,11 @@
   --foreground: #1a1a1a;
   --accent: #b85c38;
   --accent-light: #d4845a;
+  --accent-subtle: rgba(184, 92, 56, 0.06);
   --border: #e8e0d4;
   --muted: #6b6560;
   --card: #ffffff;
+  --card-hover: #fefdfb;
 }
 
 @theme inline {
@@ -30,19 +32,121 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Section marker numbers */
+/* =============================================
+   ANIMATIONS & KEYFRAMES
+   ============================================= */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes drawLine {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes drawLineVertical {
+  from { height: 0; }
+  to { height: 100%; }
+}
+
+@keyframes pulseAccent {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(184, 92, 56, 0.2); }
+  50% { box-shadow: 0 0 0 6px rgba(184, 92, 56, 0); }
+}
+
+/* Staggered animation utility classes */
+.animate-fade-in-up {
+  animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.animate-fade-in {
+  animation: fadeIn 0.6s ease both;
+}
+.animate-slide-left {
+  animation: slideInLeft 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.animate-slide-right {
+  animation: slideInRight 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.animate-scale-in {
+  animation: scaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+.delay-600 { animation-delay: 600ms; }
+.delay-700 { animation-delay: 700ms; }
+.delay-800 { animation-delay: 800ms; }
+
+/* =============================================
+   SECTION MARKERS
+   ============================================= */
+
 .section-number {
   font-family: var(--font-sans), system-ui, sans-serif;
   font-size: 0.7rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--accent);
-  font-weight: 500;
+  font-weight: 600;
 }
 
-/* Subtle grid background for hero */
+/* =============================================
+   HERO BACKGROUNDS
+   ============================================= */
+
 .hero-grid-bg {
   background-image:
     linear-gradient(rgba(184, 92, 56, 0.03) 1px, transparent 1px),
@@ -50,7 +154,6 @@ body {
   background-size: 60px 60px;
 }
 
-/* Contour-line decoration */
 .contour-lines {
   position: absolute;
   inset: 0;
@@ -59,7 +162,10 @@ body {
   opacity: 0.04;
 }
 
-/* Subtle underline accent */
+/* =============================================
+   UNDERLINE ACCENT
+   ============================================= */
+
 .accent-underline {
   position: relative;
   display: inline-block;
@@ -72,47 +178,201 @@ body {
   width: 100%;
   height: 2px;
   background-color: var(--accent);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.accent-underline:hover::after {
+  transform: scaleX(1.1);
 }
 
-/* Timeline connector */
+/* =============================================
+   TIMELINE
+   ============================================= */
+
 .timeline-dot {
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   border: 2px solid var(--accent);
   background: var(--background);
   flex-shrink: 0;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+.timeline-dot-active,
+.timeline-dot:hover {
+  background: var(--accent);
+  box-shadow: 0 0 0 4px rgba(184, 92, 56, 0.12);
 }
 .timeline-line {
   width: 2px;
-  background: var(--border);
+  background: linear-gradient(to bottom, var(--accent), var(--border));
   flex-shrink: 0;
 }
 
-/* Skill tag */
+/* =============================================
+   SKILL TAGS
+   ============================================= */
+
 .skill-tag {
   display: inline-flex;
   align-items: center;
-  padding: 0.3rem 0.75rem;
+  padding: 0.35rem 0.85rem;
   border: 1px solid var(--border);
   border-radius: 9999px;
   font-size: 0.8rem;
   color: var(--foreground);
   background: var(--card);
-  transition: all 0.2s ease;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   line-height: 1.4;
+  cursor: default;
 }
 .skill-tag:hover {
   border-color: var(--accent);
   color: var(--accent);
+  background: var(--accent-subtle);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(184, 92, 56, 0.08);
 }
 
-/* Link hover transitions */
+/* =============================================
+   CARDS & INTERACTIVE ELEMENTS
+   ============================================= */
+
+.card-interactive {
+  border: 1px solid var(--border);
+  background: var(--card);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.card-interactive:hover {
+  border-color: rgba(184, 92, 56, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(184, 92, 56, 0.06);
+  transform: translateY(-2px);
+}
+
+.contact-card {
+  border: 1px solid var(--border);
+  background: var(--card);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+.contact-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  background: var(--accent);
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.contact-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 4px 16px rgba(184, 92, 56, 0.08);
+  transform: translateX(4px);
+}
+.contact-card:hover::before {
+  width: 3px;
+}
+
+/* =============================================
+   BUTTONS
+   ============================================= */
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.75rem 1.75rem;
+  background: var(--accent);
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.025em;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 40%, rgba(255,255,255,0.1));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.btn-primary:hover {
+  background: var(--accent-light);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(184, 92, 56, 0.25);
+}
+.btn-primary:hover::before {
+  opacity: 1;
+}
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.75rem 1.75rem;
+  border: 1px solid var(--foreground);
+  color: var(--foreground);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.025em;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-outline:hover {
+  background: var(--foreground);
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(26, 26, 26, 0.15);
+}
+.btn-outline:active {
+  transform: translateY(0);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.625rem 1.25rem;
+  border: 1px solid var(--border);
+  color: var(--foreground);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.025em;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-ghost:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-subtle);
+  transform: translateY(-1px);
+}
+
+/* =============================================
+   DIVIDERS
+   ============================================= */
+
+.divider-accent {
+  height: 1px;
+  background: linear-gradient(to right, var(--accent), var(--border), transparent);
+}
+
+/* =============================================
+   LINK & FOCUS STATES
+   ============================================= */
+
 a {
   transition: color 0.2s ease;
 }
 
-/* Focus states */
 a:focus-visible,
 button:focus-visible {
   outline: 2px solid var(--accent);
@@ -120,8 +380,91 @@ button:focus-visible {
   border-radius: 2px;
 }
 
-/* Selection */
 ::selection {
   background: rgba(184, 92, 56, 0.15);
   color: var(--foreground);
+}
+
+/* =============================================
+   STAT BLOCK
+   ============================================= */
+
+.stat-block {
+  position: relative;
+  padding: 1rem 1.5rem;
+  border: 1px solid var(--border);
+  background: var(--card);
+  transition: all 0.3s ease;
+}
+.stat-block::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.stat-block:hover::after {
+  width: 100%;
+}
+.stat-block:hover {
+  border-color: rgba(184, 92, 56, 0.2);
+}
+
+/* =============================================
+   SCROLL-AWARE SECTIONS
+   ============================================= */
+
+.section-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.section-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =============================================
+   IMAGE FRAME
+   ============================================= */
+
+.image-frame {
+  position: relative;
+}
+.image-frame::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  right: 6px;
+  bottom: 6px;
+  border: 1px solid var(--accent);
+  opacity: 0.2;
+  transition: all 0.4s ease;
+  pointer-events: none;
+}
+.image-frame::after {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  right: -6px;
+  bottom: -6px;
+  border: 1px solid var(--accent);
+  opacity: 0.2;
+  transition: all 0.4s ease;
+  pointer-events: none;
+}
+.image-frame:hover::before {
+  top: -8px;
+  left: -8px;
+  opacity: 0.35;
+}
+.image-frame:hover::after {
+  bottom: -8px;
+  right: -8px;
+  opacity: 0.35;
 }

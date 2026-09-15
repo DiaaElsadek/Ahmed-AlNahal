@@ -1,4 +1,4 @@
-import { Briefcase, MapPin, Calendar } from "lucide-react";
+import { Briefcase, MapPin, Calendar, ArrowUpRight } from "lucide-react";
 
 interface Project {
   name: string;
@@ -44,8 +44,7 @@ const roles: Role[] = [
   },
   {
     title: "Urban Planning Intern",
-    company:
-      "Urban Research and Studies Consultancy Center / GOPP",
+    company: "Urban Research and Studies Consultancy Center / GOPP",
     date: "Jul 2025 – Aug 2025",
     bullets: [
       "Participated in the Giza Villages Strategic Master Plan Update Project — Target Year 2030.",
@@ -69,6 +68,7 @@ const roles: Role[] = [
 const skillGroups = [
   {
     category: "Planning & Analysis",
+    icon: "📐",
     skills: [
       "Strategic Planning",
       "Environmental Planning",
@@ -79,6 +79,7 @@ const skillGroups = [
   },
   {
     category: "GIS & Spatial",
+    icon: "🗺️",
     skills: [
       "GIS",
       "Spatial Analysis",
@@ -89,6 +90,7 @@ const skillGroups = [
   },
   {
     category: "Software",
+    icon: "💻",
     skills: [
       "ArcGIS",
       "AutoCAD",
@@ -101,6 +103,7 @@ const skillGroups = [
   },
   {
     category: "Additional",
+    icon: "✏️",
     skills: [
       "Manual Sketching",
       "Architectural Sketching",
@@ -126,45 +129,44 @@ export default function Experience() {
         {/* Timeline */}
         <div className="space-y-0">
           {roles.map((role, idx) => (
-            <div key={idx} className="flex gap-6 sm:gap-8">
+            <div key={idx} className="flex gap-6 sm:gap-8 group/role">
               {/* Timeline rail */}
               <div className="flex flex-col items-center pt-1.5">
-                <div className="timeline-dot" />
+                <div className="timeline-dot group-hover/role:timeline-dot-active" />
                 {idx < roles.length - 1 && (
                   <div className="timeline-line flex-1 my-1" />
                 )}
               </div>
 
               {/* Content */}
-              <div className="pb-14 flex-1 min-w-0">
-                {/* Role header */}
-                <div className="mb-4">
-                  <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mb-1">
-                    <h3 className="font-[family-name:var(--font-playfair)] text-lg sm:text-xl text-[var(--foreground)]">
-                      {role.title}
-                    </h3>
-                    <span className="text-[var(--accent)]" aria-hidden="true">
-                      —
-                    </span>
-                    <span className="text-sm font-medium text-[var(--foreground)]">
-                      {role.company}
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-2 text-xs text-[var(--muted)] uppercase tracking-widest">
-                    <Calendar size={12} />
-                    <span>{role.date}</span>
+              <div className="pb-16 flex-1 min-w-0">
+                {/* Role header card */}
+                <div className="mb-5 p-5 sm:p-6 card-interactive">
+                  <div className="flex flex-wrap items-start justify-between gap-3 mb-2">
+                    <div>
+                      <h3 className="font-[family-name:var(--font-playfair)] text-lg sm:text-xl text-[var(--foreground)] leading-snug">
+                        {role.title}
+                      </h3>
+                      <p className="text-sm font-medium text-[var(--accent)] mt-1">
+                        {role.company}
+                      </p>
+                    </div>
+                    <div className="flex items-center gap-1.5 px-3 py-1.5 bg-[var(--accent-subtle)] text-[11px] text-[var(--accent)] uppercase tracking-[0.12em] font-semibold shrink-0">
+                      <Calendar size={11} />
+                      <span>{role.date}</span>
+                    </div>
                   </div>
                 </div>
 
                 {/* Projects or plain bullets */}
                 {role.projects ? (
-                  <div className="space-y-6">
+                  <div className="space-y-5 ml-2">
                     {role.projects.map((project, pIdx) => (
                       <div
                         key={pIdx}
-                        className="border-l-2 border-[var(--border)] pl-5"
+                        className="border-l-2 border-[var(--border)] pl-5 hover:border-l-[var(--accent)] transition-colors duration-300"
                       >
-                        <div className="flex items-start gap-2 mb-2">
+                        <div className="flex items-start gap-2 mb-3">
                           <MapPin
                             size={14}
                             className="text-[var(--accent)] mt-0.5 shrink-0"
@@ -173,19 +175,19 @@ export default function Experience() {
                             <p className="text-sm font-semibold text-[var(--foreground)]">
                               {project.name}
                             </p>
-                            <p className="text-xs text-[var(--muted)]">
+                            <p className="text-[11px] text-[var(--muted)] mt-0.5 leading-relaxed">
                               {project.description}
                             </p>
                           </div>
                         </div>
-                        <ul className="space-y-2 mt-3">
+                        <ul className="space-y-2.5 mt-3">
                           {project.bullets.map((bullet, bIdx) => (
                             <li
                               key={bIdx}
-                              className="flex items-start gap-2.5"
+                              className="flex items-start gap-3"
                             >
-                              <span className="w-1 h-1 rounded-full bg-[var(--muted)] mt-2 shrink-0" />
-                              <span className="text-sm leading-relaxed text-[var(--muted)]">
+                              <ArrowUpRight size={12} className="text-[var(--accent)] mt-1 shrink-0 opacity-60" />
+                              <span className="text-[13px] leading-relaxed text-[var(--muted)]">
                                 {bullet}
                               </span>
                             </li>
@@ -195,11 +197,11 @@ export default function Experience() {
                     ))}
                   </div>
                 ) : (
-                  <ul className="space-y-2">
+                  <ul className="space-y-2.5 ml-2">
                     {role.bullets?.map((bullet, bIdx) => (
-                      <li key={bIdx} className="flex items-start gap-2.5">
-                        <span className="w-1 h-1 rounded-full bg-[var(--muted)] mt-2 shrink-0" />
-                        <span className="text-sm leading-relaxed text-[var(--muted)]">
+                      <li key={bIdx} className="flex items-start gap-3">
+                        <ArrowUpRight size={12} className="text-[var(--accent)] mt-1 shrink-0 opacity-60" />
+                        <span className="text-[13px] leading-relaxed text-[var(--muted)]">
                           {bullet}
                         </span>
                       </li>
@@ -212,11 +214,11 @@ export default function Experience() {
         </div>
 
         {/* Divider */}
-        <div className="w-full h-px bg-[var(--border)] my-16" />
+        <div className="divider-accent my-20" />
 
         {/* Technical Skills */}
         <div>
-          <div className="flex items-center gap-4 mb-10">
+          <div className="flex items-center gap-4 mb-12">
             <span className="section-number">03</span>
             <span className="w-12 h-px bg-[var(--accent)]" />
             <h2 className="font-[family-name:var(--font-playfair)] text-3xl sm:text-4xl text-[var(--foreground)] tracking-tight">
@@ -226,9 +228,9 @@ export default function Experience() {
 
           <div className="grid sm:grid-cols-2 gap-8 lg:gap-10">
             {skillGroups.map((group) => (
-              <div key={group.category}>
-                <p className="text-xs text-[var(--muted)] uppercase tracking-widest mb-3 flex items-center gap-2">
-                  <Briefcase size={12} className="text-[var(--accent)]" />
+              <div key={group.category} className="p-5 card-interactive">
+                <p className="text-[11px] text-[var(--muted)] uppercase tracking-[0.12em] mb-4 flex items-center gap-2.5 font-semibold">
+                  <span className="text-base">{group.icon}</span>
                   {group.category}
                 </p>
                 <div className="flex flex-wrap gap-2">

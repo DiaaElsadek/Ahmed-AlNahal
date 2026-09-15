@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Mail, ExternalLink, Phone, FileText, Eye } from "lucide-react";
+import { Mail, ExternalLink, Phone, FileText, Eye, ArrowDown } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -17,111 +17,53 @@ export default function Hero() {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <ellipse
-            cx="900"
-            cy="400"
-            rx="300"
-            ry="200"
-            stroke="#b85c38"
-            strokeWidth="1"
-          />
-          <ellipse
-            cx="900"
-            cy="400"
-            rx="250"
-            ry="165"
-            stroke="#b85c38"
-            strokeWidth="1"
-          />
-          <ellipse
-            cx="900"
-            cy="400"
-            rx="200"
-            ry="130"
-            stroke="#b85c38"
-            strokeWidth="1"
-          />
-          <ellipse
-            cx="900"
-            cy="400"
-            rx="150"
-            ry="95"
-            stroke="#b85c38"
-            strokeWidth="1"
-          />
-          <ellipse
-            cx="900"
-            cy="400"
-            rx="100"
-            ry="60"
-            stroke="#b85c38"
-            strokeWidth="1"
-          />
-          <ellipse
-            cx="200"
-            cy="600"
-            rx="180"
-            ry="120"
-            stroke="#b85c38"
-            strokeWidth="1"
-          />
-          <ellipse
-            cx="200"
-            cy="600"
-            rx="130"
-            ry="85"
-            stroke="#b85c38"
-            strokeWidth="1"
-          />
-          <ellipse
-            cx="200"
-            cy="600"
-            rx="80"
-            ry="50"
-            stroke="#b85c38"
-            strokeWidth="1"
-          />
+          <ellipse cx="900" cy="400" rx="300" ry="200" stroke="#b85c38" strokeWidth="1" />
+          <ellipse cx="900" cy="400" rx="250" ry="165" stroke="#b85c38" strokeWidth="1" />
+          <ellipse cx="900" cy="400" rx="200" ry="130" stroke="#b85c38" strokeWidth="1" />
+          <ellipse cx="900" cy="400" rx="150" ry="95" stroke="#b85c38" strokeWidth="1" />
+          <ellipse cx="900" cy="400" rx="100" ry="60" stroke="#b85c38" strokeWidth="1" />
+          <ellipse cx="200" cy="600" rx="180" ry="120" stroke="#b85c38" strokeWidth="1" />
+          <ellipse cx="200" cy="600" rx="130" ry="85" stroke="#b85c38" strokeWidth="1" />
+          <ellipse cx="200" cy="600" rx="80" ry="50" stroke="#b85c38" strokeWidth="1" />
         </svg>
       </div>
 
       <div className="max-w-6xl mx-auto px-6 lg:px-8 w-full py-16 lg:py-24">
-        <div className="grid lg:grid-cols-[1fr_auto] gap-12 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-[1fr_380px] gap-12 lg:gap-16 items-center">
           {/* Left column: text content */}
           <div>
             {/* Coordinate label */}
-            <div className="section-number mb-8 flex items-center gap-3">
-              <span className="w-8 h-px bg-[var(--accent)]" />
+            <div className="section-number mb-6 flex items-center gap-3 animate-fade-in">
+              <span className="w-10 h-px bg-[var(--accent)]" />
               <span>30.0444° N, 31.2357° E — Cairo</span>
             </div>
 
             {/* Name */}
-            <h1 className="font-[family-name:var(--font-playfair)] text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-[var(--foreground)] leading-[1.1] tracking-tight mb-4">
+            <h1 className="font-[family-name:var(--font-playfair)] text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] text-[var(--foreground)] leading-[1.08] tracking-tight mb-5 animate-fade-in-up delay-100">
               Ahmed Moustafa
               <br />
-              <span className="text-[var(--accent)]">Hussein Ahmed</span>
+              <span className="text-[var(--accent)] inline-block">Hussein Ahmed</span>
             </h1>
 
             {/* Title line */}
-            <p className="text-base sm:text-lg text-[var(--muted)] tracking-wide uppercase font-medium mt-4 mb-8 flex flex-wrap items-center gap-x-3 gap-y-1">
-              <span>Urban Planning</span>
-              <span className="text-[var(--accent)]" aria-hidden="true">
-                ·
-              </span>
-              <span>Environmental Planning</span>
-              <span className="text-[var(--accent)]" aria-hidden="true">
-                ·
-              </span>
-              <span>GIS & Spatial Analysis</span>
-            </p>
+            <div className="animate-fade-in-up delay-200">
+              <p className="text-sm sm:text-[15px] text-[var(--muted)] tracking-[0.12em] uppercase font-medium mt-3 mb-7 flex flex-wrap items-center gap-x-3 gap-y-1">
+                <span>Urban Planning</span>
+                <span className="text-[var(--accent)] text-xs" aria-hidden="true">◆</span>
+                <span>Environmental Planning</span>
+                <span className="text-[var(--accent)] text-xs" aria-hidden="true">◆</span>
+                <span>GIS & Spatial Analysis</span>
+              </p>
+            </div>
 
             {/* Divider */}
-            <div className="w-full h-px bg-[var(--border)] mb-8" />
+            <div className="divider-accent mb-7 animate-fade-in delay-300" />
 
             {/* Professional summary */}
-            <p className="max-w-2xl text-base sm:text-lg leading-relaxed text-[var(--muted)] mb-10">
+            <p className="max-w-xl text-[15px] sm:text-base leading-[1.75] text-[var(--muted)] mb-8 animate-fade-in-up delay-300">
               Urban and Regional Planning student at Cairo University, specializing
               in Environmental Planning, ranked{" "}
-              <strong className="text-[var(--foreground)]">1st in class</strong>.
+              <strong className="text-[var(--foreground)] font-semibold">1st in class</strong>.
               Experienced in urban planning, GIS-based spatial analysis,
               environmental assessment, urban design, and landscape planning — with a
               focus on strategic planning, climate-responsive urban development,
@@ -130,20 +72,20 @@ export default function Hero() {
             </p>
 
             {/* Stats */}
-            <div className="flex flex-wrap gap-8 sm:gap-12 mb-10">
+            <div className="flex flex-wrap gap-4 mb-8 animate-fade-in-up delay-400">
               <StatBlock label="Class Rank" value="1st" />
               <StatBlock label="GPA" value="3.49 / 4.00" />
               <StatBlock label="Internships" value="3" />
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-wrap items-center gap-4">
+            <div className="flex flex-wrap items-center gap-3 animate-fade-in-up delay-500">
               <a
                 href="mailto:mustafa_222014@stud.furp.cu.edu"
                 id="hero-email-cta"
-                className="inline-flex items-center gap-2.5 px-7 py-3 bg-[var(--accent)] text-white text-sm font-medium tracking-wide hover:bg-[var(--accent-light)] transition-colors duration-200"
+                className="btn-primary"
               >
-                <Mail size={16} />
+                <Mail size={15} />
                 Email me
               </a>
               <a
@@ -151,9 +93,9 @@ export default function Hero() {
                 target="_blank"
                 rel="noopener noreferrer"
                 id="hero-linkedin-cta"
-                className="inline-flex items-center gap-2.5 px-7 py-3 border border-[var(--foreground)] text-[var(--foreground)] text-sm font-medium tracking-wide hover:bg-[var(--foreground)] hover:text-white transition-all duration-200"
+                className="btn-outline"
               >
-                <ExternalLink size={16} />
+                <ExternalLink size={15} />
                 LinkedIn
               </a>
             </div>
@@ -161,16 +103,16 @@ export default function Hero() {
             {/* Phone */}
             <a
               href="tel:+2011214365"
-              className="inline-flex items-center gap-2 mt-5 text-sm text-[var(--muted)] hover:text-[var(--accent)] transition-colors"
+              className="inline-flex items-center gap-2 mt-4 text-sm text-[var(--muted)] hover:text-[var(--accent)] transition-colors animate-fade-in delay-600"
             >
-              <Phone size={14} />
+              <Phone size={13} />
               +20 112 143 650
             </a>
 
             {/* Document Buttons */}
-            <div className="mt-8 pt-8 border-t border-[var(--border)]">
-              <p className="text-xs text-[var(--muted)] uppercase tracking-widest mb-4 flex items-center gap-2">
-                <FileText size={12} className="text-[var(--accent)]" />
+            <div className="mt-7 pt-7 border-t border-[var(--border)] animate-fade-in-up delay-700">
+              <p className="text-[10px] text-[var(--muted)] uppercase tracking-[0.15em] mb-3 flex items-center gap-2 font-medium">
+                <FileText size={11} className="text-[var(--accent)]" />
                 Documents
               </p>
               <div className="flex flex-wrap gap-3">
@@ -179,9 +121,9 @@ export default function Hero() {
                   target="_blank"
                   rel="noopener noreferrer"
                   id="hero-view-cv"
-                  className="group inline-flex items-center gap-2.5 px-5 py-2.5 border border-[var(--border)] text-[var(--foreground)] text-sm font-medium tracking-wide hover:border-[var(--accent)] hover:text-[var(--accent)] transition-all duration-200"
+                  className="btn-ghost group"
                 >
-                  <Eye size={15} className="text-[var(--muted)] group-hover:text-[var(--accent)] transition-colors" />
+                  <Eye size={14} className="text-[var(--muted)] group-hover:text-[var(--accent)] transition-colors" />
                   View CV
                 </a>
                 <a
@@ -189,38 +131,35 @@ export default function Hero() {
                   target="_blank"
                   rel="noopener noreferrer"
                   id="hero-view-portfolio"
-                  className="group inline-flex items-center gap-2.5 px-5 py-2.5 border border-[var(--border)] text-[var(--foreground)] text-sm font-medium tracking-wide hover:border-[var(--accent)] hover:text-[var(--accent)] transition-all duration-200"
+                  className="btn-ghost group"
                 >
-                  <Eye size={15} className="text-[var(--muted)] group-hover:text-[var(--accent)] transition-colors" />
+                  <Eye size={14} className="text-[var(--muted)] group-hover:text-[var(--accent)] transition-colors" />
                   View Portfolio
                 </a>
               </div>
             </div>
           </div>
 
-          {/* Right column: portrait image */}
-          <div className="hidden lg:flex flex-col items-center">
-            <div className="relative">
-              {/* Decorative frame lines */}
-              <div className="absolute -top-3 -left-3 w-20 h-20 border-t-2 border-l-2 border-[var(--accent)] opacity-40" />
-              <div className="absolute -bottom-3 -right-3 w-20 h-20 border-b-2 border-r-2 border-[var(--accent)] opacity-40" />
-
-              {/* Image container */}
-              <div className="relative w-[320px] h-[400px] overflow-hidden border border-[var(--border)]">
+          {/* Right column: portrait image (Desktop) */}
+          <div className="hidden lg:flex flex-col items-center animate-slide-right delay-400">
+            <div className="image-frame">
+              <div className="relative w-[340px] h-[430px] overflow-hidden border border-[var(--border)] shadow-[0_8px_30px_rgba(0,0,0,0.06)]">
                 <Image
                   src="/images/personal_image.jpeg"
                   alt="Ahmed Moustafa Hussein Ahmed — Urban Planning Student"
                   fill
-                  className="object-cover object-top"
+                  className="object-cover object-top transition-transform duration-700 hover:scale-[1.03]"
                   priority
-                  sizes="320px"
+                  sizes="340px"
                 />
+                {/* Subtle overlay gradient at bottom */}
+                <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/20 to-transparent" />
               </div>
 
               {/* Caption below image */}
-              <div className="mt-4 text-center">
-                <p className="section-number">Ahmed Alnahal</p>
-                <p className="text-xs text-[var(--muted)] mt-1">
+              <div className="mt-5 text-center">
+                <p className="section-number tracking-[0.15em]">Ahmed Alnahal</p>
+                <p className="text-[11px] text-[var(--muted)] mt-1 tracking-wide">
                   Cairo University · Class of 2027
                 </p>
               </div>
@@ -228,21 +167,32 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Mobile portrait — shown only on smaller screens */}
-        <div className="lg:hidden flex justify-center mt-12">
-          <div className="relative">
-            <div className="absolute -top-2 -left-2 w-14 h-14 border-t-2 border-l-2 border-[var(--accent)] opacity-40" />
-            <div className="absolute -bottom-2 -right-2 w-14 h-14 border-b-2 border-r-2 border-[var(--accent)] opacity-40" />
-            <div className="relative w-[220px] h-[280px] overflow-hidden border border-[var(--border)]">
+        {/* Mobile portrait */}
+        <div className="lg:hidden flex justify-center mt-12 animate-scale-in delay-500">
+          <div className="image-frame">
+            <div className="relative w-[240px] h-[300px] overflow-hidden border border-[var(--border)] shadow-[0_4px_20px_rgba(0,0,0,0.06)]">
               <Image
                 src="/images/personal_image.jpeg"
                 alt="Ahmed Moustafa Hussein Ahmed — Urban Planning Student"
                 fill
                 className="object-cover object-top"
-                sizes="220px"
+                sizes="240px"
               />
+              <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/20 to-transparent" />
             </div>
           </div>
+        </div>
+
+        {/* Scroll indicator */}
+        <div className="hidden lg:flex justify-center mt-16 animate-fade-in delay-800">
+          <a
+            href="#education"
+            className="flex flex-col items-center gap-2 text-[var(--muted)] hover:text-[var(--accent)] transition-colors group"
+            aria-label="Scroll to Education"
+          >
+            <span className="text-[10px] uppercase tracking-[0.15em] font-medium">Scroll</span>
+            <ArrowDown size={16} className="animate-bounce" />
+          </a>
         </div>
       </div>
     </section>
@@ -251,11 +201,11 @@ export default function Hero() {
 
 function StatBlock({ label, value }: { label: string; value: string }) {
   return (
-    <div className="flex flex-col">
-      <span className="font-[family-name:var(--font-playfair)] text-2xl sm:text-3xl text-[var(--foreground)] font-semibold">
+    <div className="stat-block">
+      <span className="font-[family-name:var(--font-playfair)] text-xl sm:text-2xl text-[var(--foreground)] font-semibold block">
         {value}
       </span>
-      <span className="text-xs text-[var(--muted)] uppercase tracking-widest mt-1">
+      <span className="text-[10px] text-[var(--muted)] uppercase tracking-[0.15em] mt-1 block font-medium">
         {label}
       </span>
     </div>
