@@ -126,7 +126,7 @@ export default function Education() {
                   Faculty of Urban and Regional Planning (FURP)
                 </p>
                 <p className="text-xs text-[var(--muted)] mt-0.5">
-                  Giza, Cairo Metropolitan Area, Egypt
+                  Cairo, Egypt
                 </p>
               </div>
             </div>

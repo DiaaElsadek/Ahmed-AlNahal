@@ -52,7 +52,7 @@ export default function Nav() {
           <a
             href="#"
             className="group flex items-center gap-3.5"
-            aria-label="Ahmed Alnahal — Return to top"
+            aria-label="Ahmed Al Nahal — Return to top"
           >
             <div className="relative flex items-center justify-center w-9 h-9 border border-[var(--accent)] text-[var(--accent)] text-[11px] font-mono font-bold tracking-widest transition-all duration-300 group-hover:bg-[var(--accent)] group-hover:text-white">
               AA
@@ -60,16 +60,16 @@ export default function Nav() {
             </div>
             <div>
               <span className="block font-[family-name:var(--font-playfair)] text-lg sm:text-xl font-bold text-[var(--foreground)] tracking-tight leading-none group-hover:text-[var(--accent)] transition-colors">
-                Ahmed Al Nahal 
+                Ahmed Al Nahal
               </span>
               <span className="block font-mono text-[9px] sm:text-[10px] text-[var(--muted)] tracking-[0.14em] uppercase mt-1">
-                Urban Planning Undergraduate 
+                Urban Planning Undergraduate  
               </span>
             </div>
           </a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8 lg:gap-10">
+          <div className="hidden md:flex items-center gap-7 lg:gap-9">
             {navLinks.map((link) => (
               <a
                 key={link.href}
@@ -80,7 +80,7 @@ export default function Nav() {
                     : "text-[var(--muted)] hover:text-[var(--foreground)]"
                 }`}
               >
-                <span className="text-[10px] text-[var(--accent)] mr-1.5 opacity-60 group-hover:opacity-100 transition-opacity">
+                <span className="text-[10px] text-[var(--accent)] mr-1 opacity-60 group-hover:opacity-100 transition-opacity">
                   {link.num} //
                 </span>
                 {link.label}

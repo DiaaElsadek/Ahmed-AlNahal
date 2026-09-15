@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Mail, ExternalLink, Phone, FileText, Eye, ArrowDown, Compass, Layers, MapPin } from "lucide-react";
+import { Mail, ExternalLink, Phone, FileText, Eye, ArrowDown, Compass, Layers, MapPin, Building2, Map } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -91,22 +91,29 @@ export default function Hero() {
 
             {/* Candidate Name */}
             <h1 className="font-[family-name:var(--font-playfair)] text-4xl sm:text-5xl md:text-6xl lg:text-[4.75rem] text-[var(--foreground)] leading-[1.04] tracking-tight mb-5 animate-fade-in-up delay-100">
-              Ahmed Moustafa
+              <span className="text-[var(--accent)] font-semibold italic">Ahmed Moustafa</span>
               <br />
-              <span className="text-[var(--accent)] font-semibold italic">Hussein Ahmed</span>
+              Hussein Ahmed
             </h1>
 
-            {/* Sub-headline / Studio Statement */}
+            {/* Sub-headline / Studio Statement with Lucide Icons (no raw emojis) */}
             <div className="animate-fade-in-up delay-200">
-              <p className="text-xs sm:text-sm font-mono text-[var(--muted)] tracking-[0.14em] uppercase mb-6 flex flex-wrap items-center gap-x-3 gap-y-1.5">
-                <span className="font-semibold text-[var(--foreground)]">Master Planning</span>
-                <span className="text-[var(--accent)]" aria-hidden="true">■</span>
-                <span className="font-semibold text-[var(--foreground)]">GIS Spatial Analysis</span>
-                {/* <span className="text-[var(--accent)]" aria-hidden="true">■</span> */}
-                {/* <span className="font-semibold text-[var(--foreground)]">Climate Resilience</span> */}
-                <span className="text-[var(--accent)]" aria-hidden="true">■</span>
-                <span className="font-semibold text-[var(--foreground)]">Urban Design</span>
-              </p>
+              <div className="text-xs sm:text-sm font-mono text-[var(--muted)] tracking-[0.14em] uppercase mb-6 flex flex-wrap items-center gap-x-3 gap-y-2">
+                <span className="font-semibold text-[var(--foreground)] flex items-center gap-1.5">
+                  <Building2 size={13} className="text-[var(--accent)]" />
+                  Master Planning
+                </span>
+                <span className="text-[var(--border)]">|</span>
+                <span className="font-semibold text-[var(--foreground)] flex items-center gap-1.5">
+                  <Map size={13} className="text-[var(--accent)]" />
+                  GIS Spatial Analysis
+                </span>
+                <span className="text-[var(--border)]">|</span>
+                <span className="font-semibold text-[var(--foreground)] flex items-center gap-1.5">
+                  <Compass size={13} className="text-[var(--accent)]" />
+                  Urban Design
+                </span>
+              </div>
             </div>
 
             {/* Architectural Divider */}
@@ -122,8 +129,8 @@ export default function Hero() {
               <strong className="text-[var(--foreground)] font-semibold">3,000+ acres</strong> in Egypt and international projects in Tanzania. Passionate about climate-responsive urban design, GIS-driven decision models, and resilient regional growth.
             </p>
 
-            {/* Project Metrics & Spec Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-9 animate-fade-in-up delay-400">
+            {/* Project Metrics & Spec Grid (3 Tiles balanced layout) */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-9 animate-fade-in-up delay-400">
               <div className="data-tile">
                 <span className="block font-mono text-[10px] text-[var(--muted)] uppercase tracking-wider mb-1">
                   Academic Rank
@@ -148,27 +155,15 @@ export default function Hero() {
                 </span>
               </div>
 
-              {/* <div className="data-tile">
-                <span className="block font-mono text-[10px] text-[var(--muted)] uppercase tracking-wider mb-1">
-                  Masterplan Scale
-                </span>
-                <span className="font-[family-name:var(--font-playfair)] text-2xl sm:text-3xl font-bold text-[var(--foreground)] leading-tight block">
-                  3k+
-                </span>
-                <span className="text-[10px] font-mono text-[var(--muted-light)] mt-0.5 block">
-                  Acres Planned
-                </span>
-              </div> */}
-
               <div className="data-tile">
                 <span className="block font-mono text-[10px] text-[var(--muted)] uppercase tracking-wider mb-1">
-                  Internships 
+                  Practicum Internships
                 </span>
                 <span className="font-[family-name:var(--font-playfair)] text-2xl sm:text-3xl font-bold text-[var(--foreground)] leading-tight block">
                   03
                 </span>
                 <span className="text-[10px] font-mono text-[var(--muted-light)] mt-0.5 block">
-                  
+                
                 </span>
               </div>
             </div>
@@ -310,7 +305,7 @@ export default function Hero() {
                       <div className="flex items-center gap-2">
                         <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse" />
                         <span className="text-[10px] font-mono uppercase tracking-wider text-[var(--foreground)] font-semibold">
-                          Available for Practicum / Roles
+                          Available for Roles
                         </span>
                       </div>
                       <span className="text-[9px] font-mono text-[var(--muted)]">2026/2027</span>

@@ -14,7 +14,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Ahmed Alnahal — Urban Planning Portfolio",
+  title: "Ahmed Al Nahal — Urban Planning Portfolio",
   description:
     "Urban and Regional Planning student at Cairo University, specializing in Environmental Planning, GIS & Spatial Analysis, and Urban Design. Ranked 1st in class.",
   keywords: [
@@ -26,11 +26,17 @@ export const metadata: Metadata = {
     "portfolio",
   ],
   authors: [{ name: "Ahmed Moustafa Hussein Ahmed" }],
+  icons: {
+    icon: "/images/personal_image.jpeg",
+    shortcut: "/images/personal_image.jpeg",
+    apple: "/images/personal_image.jpeg",
+  },
   openGraph: {
-    title: "Ahmed Alnahal — Urban Planning Portfolio",
+    title: "Ahmed Al Nahal — Urban Planning Portfolio",
     description:
       "Urban Planning student specializing in Environmental Planning, GIS, and Urban Design at Cairo University.",
     type: "website",
+    images: ["/images/personal_image.jpeg"],
   },
 };
 
